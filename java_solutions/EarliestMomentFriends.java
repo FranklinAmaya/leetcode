@@ -1,7 +1,5 @@
-package java_solutions;
-
 // https://leetcode.com/explore/learn/card/graph/618/disjoint-set/3912/
-public class Solution {
+public class EarliestMomentFriends {
   public int earliestAcq(int[][] logs, int n) {
     UnionFind unionFind = new UnionFind(n);
     quickSort(logs, 0, logs.length - 1);

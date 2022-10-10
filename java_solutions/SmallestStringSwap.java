@@ -1,6 +1,6 @@
 import java.util.*;
 
-public class Solution {
+public class SmallestStringSwap {
   public String smallestStringWithSwaps(String s, List<List<Integer>> pairs) {
     int n = s.length();
     UnionFind unionFind = new UnionFind(n);
