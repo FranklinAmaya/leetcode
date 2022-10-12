@@ -2,26 +2,31 @@ import java.util.*;
 
 //https://leetcode.com/problems/populating-next-right-pointers-in-each-node/
 public class PopulateNextPointers {
-
   public Node connect(Node root) {
-    Queue<Node> q = new LinkedList<>();
-    q.offer(root);
+    if (root == null) {
+      return root;
+    }
 
-    while (!q.isEmpty()) {
-      int size = q.size();
+    Node leftMost = root;
 
-      for (int i = 0; i < size; i++) {
-        Node curr = q.poll();
+    while (leftMost.left != null) {
+      Node head = leftMost;
 
-        if (i < size - 1)
-          curr.next = q.peek();
+      // loop through children
+      while (head != null) {
+        // establish connection 1
+        head.left.next = head.right;
 
-        if (curr.left != null)
-          q.offer(curr.left);
+        // establish connection 2
+        if (head.next != null)
+          head.right.next = head.next.left;
 
-        if (curr.right != null)
-          q.offer(curr.right);
+        // go to next node on the same level
+        head = head.next;
       }
+
+      // move onto the next level
+      leftMost = leftMost.left;
     }
 
     return root;
