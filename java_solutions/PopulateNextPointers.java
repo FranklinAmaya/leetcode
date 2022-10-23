@@ -1,5 +1,3 @@
-import java.util.*;
-
 //https://leetcode.com/problems/populating-next-right-pointers-in-each-node/
 public class PopulateNextPointers {
   public Node connect(Node root) {
