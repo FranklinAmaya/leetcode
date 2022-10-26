@@ -1,4 +1,5 @@
 class CheapestFlights {
+  // using this as infinity to prevent overflow
   final int INF = 0x3f3f3f3f;
 
   public int findCheapestPrice(int n, int[][] flights, int src, int dst, int k) {
@@ -25,9 +26,7 @@ class CheapestFlights {
         int v = edges[1];
         int w = edges[2];
 
-        if (prev[u] < Integer.MAX_VALUE) {
-          curr[v] = Math.min(curr[v], prev[u] + w);
-        }
+        curr[v] = Math.min(curr[v], prev[u] + w);
       }
 
       prev = curr.clone();
