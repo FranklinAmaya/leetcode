@@ -26,6 +26,7 @@ class CheapestFlights {
         int v = edges[1];
         int w = edges[2];
 
+        // perform relaxation
         curr[v] = Math.min(curr[v], prev[u] + w);
       }
 
